@@ -9,6 +9,7 @@ setup(
     zip_safe=False,
     install_requires=[
         'Flask', 'Flask-RESTful', 'Flask-SQLAlchemy',
-        'requests', 'Flask-Migrate', 'pymysql'
+        'requests', 'Flask-Migrate', 'pymysql',
+        'Flask-Admin'
     ],
 )
