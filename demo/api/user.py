@@ -1,7 +1,8 @@
 from flask_restful import Resource, reqparse, marshal_with
 
-from demo import db, api_bp, api
+from demo import db
 from demo.model.user import User, user_fields
+from .util import api
 
 
 class UserResource(Resource):
