@@ -1,6 +1,6 @@
 from flask_restful import Resource, reqparse, marshal_with
 
-from demo import db
+from demo import db, log
 from demo.model.user import User, user_fields
 from .util import api
 
@@ -9,6 +9,7 @@ class UserResource(Resource):
     @marshal_with(user_fields)
     def get(self, user_id):
         u = User.query.get(user_id)
+        log.debug('get user %s' % u)
         return u
 
     def delete(self, user_id):
@@ -38,6 +39,7 @@ class UserList(Resource):
             name=args['name'],
             cellphone=args['cellphone']
         )
+
         db.session.add(u)
         db.session.commit()
         return u
